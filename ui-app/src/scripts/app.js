@@ -23,21 +23,67 @@
 }(this.mp));
 
 
-// attacho un objeto al namespace, def de módulo
-(function(namespace){
-	var _features = ['checkout','mymp'],
-		mprfont = {};
 
-	mprfont.getFeatures() = function(){
-		return _features;
+
+
+function Operation(type){
+	var _type = type
+	this.getType = function(){
+		return _type;
 	};
+	this.setType = function(input){
+		_type = input;
+	};
+}
 
-	namespace.mpfront = mprfont;
-}(this.mp));
+Operation.prototype.execute = function(){
+	console.log("execute: "+ this.getType());
+};
+Operation.prototype.cancel = function(){
+	console.log("cancel: "+ this.getType());
+};
+Operation.prototype.refund = function(){
+	console.log("refund: "+ this.getType());
+};
 
-// dependencia entre modulos
-(function(namespace,exports){
-	var envios = exports.me, 	/* explota si me no está definido*/
-		ap = exports.ap,
-		cho = namespace.checkout;
-}());
+
+
+
+
+(function(exports){
+	var titles = ["Hola Mundo", "olo", "javo"];
+
+	var ulElement = exports.createElement("ul")
+	for(var i in titles){
+		var liElement = exports.createElement("li");
+		liElement.innerHTML = titles[i];
+		ulElement.appendChild(liElement);
+	}
+	exports.body.appendChild(ulElement);
+}(this.document));
+
+
+
+
+
+
+
+
+// attacho un objeto al namespace, def de módulo
+//(function(namespace){
+	//var _features = ['checkout','mymp'],
+		//mpfront = {};
+//
+	//mpfront.getFeatures = function(){
+		//return _features;
+	//};
+//
+	//namespace.mpfront = mpfront;
+//}(this.mp));
+//
+//// dependencia entre modulos
+//(function(namespace,exports){
+	//var envios = exports.me, 	/* explota si me no está definido*/
+		//ap = exports.ap,
+		//cho = namespace.checkout;
+//}());
