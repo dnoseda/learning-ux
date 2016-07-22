@@ -8,9 +8,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
 	</head>
 	<body>
+		
 		<h1>Listado de operaciones</h1>
+		
+		<ul class="burger">
+			<li>elemento</li>
+			<li>elemento</li>
+			<li>elemento</li>
+		</ul>
 
-			<ul>
+		<nav class="nav" >
+			
+
+			<ul class="main-nav">
 				<li>Resumen
 					<ol>
 						<li>Solicitar dinero</li>
@@ -44,30 +54,39 @@
 					</ol>
 				</li>
 			</ul>
+		</nav>
 
-
-			<p>Este es un <strong>listado de operaciones</strong>. Podrás encontrar desde tus <em>envíos de dinero</em> hasta <em>compras</em></p>
-
-			<p>Acá podés encontrar tu QR &nbsp; <!--espacio-->
+		<a name="main"></a>
+		<section >
+			<p>
+				Este es un <strong>listado de operaciones</strong>. Podrás encontrar desde tus <em>envíos de dinero</em> hasta <em>compras</em>
+			</p>
+			
+	
+			<aside>Acá podés encontrar tu QR &nbsp; <!--espacio-->
 				<code>
 					<a href="https://www.mercadopago.com.ar/miqr">
 						https://www.mercadopago.com.ar/miqr
 					</a>
 				</code>
-			</p>
-
+			</aside>
+			
 			<hr> <!-- Línea de quiebre semántico-->
+			<section id="list" >
+				<article class="actions">
+					<a class="action" id="delete" href="#">
+						Borrar
+					</a>
+					<a class="action" id="archive" href="#">
+						Archivar
+					</a>
+				</article>
+			</section>
+			<hr> <!-- Línea de quiebre semántico-->
+			<section id="archived-list" ><h3>Elementos archivados</h3></section>
 			
-			<h2>13 de junio</h2>
-				<h3>Guirnalda de luces</h3>
-				<h3>Luz para Pecera</h3>
-			
-			<h2>1 de mayo</h2>
-				<h3>Estufa</h3>
-				<h3>Estufa</h3>
-			
-			<h2>10 de abril</h2>
-				<h3>Envío de dinero</h3>
-		
+		</section>
+
+		<script src="ui-build/js/bundle__large.js"></script>	
 	</body>
 </html>

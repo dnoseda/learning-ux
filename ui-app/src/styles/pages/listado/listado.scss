@@ -1,29 +1,114 @@
-h3, p{
-	color: #666;
+.main-nav ol {
+   display: none;
 }
 
-
-h3{
-	font-size: 12px;
+.main-nav li:hover ol {
+   display: block;
 }
 
-p{
-	font-size: 10px;
+.main-nav li::after {
+   content: '|';
+   display: block;
+   float: left;
 }
 
-ul{
-	background: #dedede;
+.main-nav > li {
+   float: left;
+   width: 180px;
+   text-align: center;
+   background-color: yellow;
+   height: 40px;
+   line-height: 40px;
 }
 
-ul > li{
-	list-style: 40px;
-	
+.main-nav {
+   width: 900px;
 }
 
-ul > li{
-	background-color: red;
+.nav {
+   overflow-y: hidden;
+   overflow-x: scroll;
+   margin-top: 45px;
 }
 
-ol > li{
-	line-height: 10px;
+.burger{
+   position: fixed;
+   top: 0;
+   right: 0;
+   background-color: blue;
+   height: 40px;
+   width: 40px;   
+
 }
+
+.burger > li{
+   display: none;
+}
+
+.burger:hover > li{
+   display: block;
+
+}
+
+.burger:hover::after{
+   display: none;
+}
+
+.burger::after{
+   content: '\f00e';
+   font-family: "icons";
+   font-size: 40px;
+   text-align: center;
+   line-height: 49px;
+   padding: 4px;
+}
+
+.product-name{
+  font-size: 20px;
+  padding: 3px;
+}
+
+article{
+  padding: 5px;
+}
+
+.ch-price {
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 2px solid;
+    border-color: blue;
+    padding-top: 8px;
+    text-align: center;
+    padding-bottom: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+[class^="status"]::before{
+   font-family: "icons";
+}
+
+.status-approved::before{
+   content: '\f058';
+    color: green;
+}
+
+h1 {
+   margin: 0;
+   left: 0;
+   right: 0;
+   position: fixed;
+   height: 33px;
+   text-align:center;
+   background-color: lightblue;
+   color: white;
+   top:0;
+}
+
+@media (max-width: 200px) {
+  h1 {
+    font-size: 12px;
+  }
+}
+@media (min-width: 1024px) {}
+@media (min-width: 1200px) {}

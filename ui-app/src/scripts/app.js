@@ -46,23 +46,67 @@ Operation.prototype.refund = function(){
 	console.log("refund: "+ this.getType());
 };
 
+(function(htmlDocument){
+	var productNames = ["iPhone","iPad","iPen"];
+	var products = [];
 
-
-
-
-(function(exports){
-	var titles = ["Hola Mundo", "olo", "javo"];
-
-	var ulElement = exports.createElement("ul")
-	for(var i in titles){
-		var liElement = exports.createElement("li");
-		liElement.innerHTML = titles[i];
-		ulElement.appendChild(liElement);
+	for(var index in productNames){
+		
+		var product = {
+			name:productNames[index],
+			price:432, 
+			decimalPrice:32,
+			status:"approved",
+			statusMessage:"El vendedor ya tiene el dinero"
+		}
+		
+		products.push(product);
 	}
-	exports.body.appendChild(ulElement);
+
+
+	var strBody = '';
+	for(var index in products){
+		var product = products[index]
+		strBody = strBody+ '<article data-type="item"> \
+						<input type="checkbox"></input> \
+						<span class="ch-price"> \
+							<sup>$</sup> \
+							'+product.price+' \
+							<sup>'+product.decimalPrice+'</sup> \
+						</span> \
+						<span class="product-name">' + product.name + '</span>\
+						<article class="status-'+product.status+'"> \
+							'+product.statusMessage+' \
+						</article> \
+					</article>';
+	}
+	this.document.getElementById("list").insertAdjacentHTML('beforeEnd',strBody)
+
 }(this.document));
 
+(function(exports){
+	exports.getElementById("delete").addEventListener("click",function(e){
+		var elements = exports.querySelectorAll(":checked")
+		for (var i = elements.length - 1; i >= 0; i--) {
+			var element = elements[i];
+			element.parentElement.remove();
+			element.checked = false;
+		}
+	});
 
+	exports.getElementById("archive").addEventListener("click",function(e){
+		var elements = exports.querySelectorAll(":checked");
+		var archList = exports.getElementById("archived-list");
+		for (var i = elements.length - 1; i >= 0; i--) {
+			var element = elements[i];
+			archList.appendChild(element.parentElement);
+			element.checked = false;
+		}
+	})
+	
+	
+
+}(this.document));
 
 
 
